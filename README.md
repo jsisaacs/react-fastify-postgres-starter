@@ -48,109 +48,109 @@ Below are instructions and details to help you get up and running quickly.
 
 ## Getting Started
 
-1. **Clone the Repository**
+1. Clone the Repository
 
-```bash
-git clone https://github.com/jsisaacs/react-fastify-postgres-starter.git
-cd react-fastify-postgres-starter
-```
+   ```bash
+   git clone https://github.com/jsisaacs/react-fastify-postgres-starter.git
+   cd react-fastify-postgres-starter
+   ```
 
-2. **Create Your .env File**
+2. Create Your .env File
 
-Copy the provided example:
+   Copy the provided example:
 
-```bash
-cp .env.example .env
-```
+   ```bash
+   cp .env.example .env
+   ```
 
-Edit the newly created `.env` file to set up your project-specific environment variables, or keep the defaults. This file includes DB credentials, host ports, etc.
+   Edit the newly created `.env` file to set up your project-specific environment variables, or keep the defaults. This file includes DB credentials, host ports, etc.
 
-3. **(Optional) Use the Specified Node Version**
+3. (Optional) Use the Specified Node Version
 
-If you plan to do local development (rather than Docker-only):
+   If you plan to do local development (rather than Docker-only):
 
-```bash
-nvm install
-nvm use
-```
+   ```bash
+   nvm install
+   nvm use
+   ```
 
-This ensures you’re matching the Node version specified in `.nvmrc`.
+   This ensures you’re matching the Node version specified in `.nvmrc`.
 
-4. **(Optional) Install Dependencies Locally**
+4. (Optional) Install Dependencies Locally
 
-If you prefer to install and run everything locally (outside Docker):
+   If you prefer to install and run everything locally (outside Docker):
 
-```bash
-cd api
-pnpm install
-cd ../frontend
-pnpm install
-```
+   ```bash
+   cd api
+   pnpm install
+   cd ../frontend
+   pnpm install
+   ```
 
-Otherwise, Docker Compose will handle installation when building the images.
+   Otherwise, Docker Compose will handle installation when building the images.
 
 ## Running the Project
 
-1. **Start Containers with Docker Compose**
+1. Start Containers with Docker Compose
 
-```bash
-docker compose up --build -d
-```
+   ```bash
+   docker compose up --build -d
+   ```
 
-- Builds all required images (if they don’t already exist).
-- Starts up containers for Postgres, Fastify, and React in detached mode.
+   - Builds all required images (if they don’t already exist).
+   - Starts up containers for Postgres, Fastify, and React in detached mode.
 
-  > **Note:** You only need the --build flag the first time or any time your Dockerfiles or dependencies change.
+     > **Note:** You only need the --build flag the first time or any time your Dockerfiles or dependencies change.
 
-2. **Access the React Frontend**
+2. Access the React Frontend
 
-Once the containers are running, open http://localhost:5173 in your browser. You should see the Vite + React starter plus the following text on the page:
+   Once the containers are running, open http://localhost:5173 in your browser. You should see the Vite + React starter plus the following text on the page:
 
-{ "message": "Pong! Fastify is running!" }
+   `{ "message": "Pong! Fastify is running!" }`
 
-(This text is the response from the `/api/ping` endpoint on the Fastify server.)
+   (This text is the response from the `/api/ping` endpoint on the Fastify server.)
 
-3. **Test the Fastify API Directly**
+3. Test the Fastify API Directly
 
-If you want to send requests to the backend directly run:
+   If you want to send requests to the backend directly run:
 
-```bash
-curl http://localhost:3000/api/ping
-```
+   ```bash
+   curl http://localhost:3000/api/ping
+   ```
 
-You should see the JSON response:
+   You should see the JSON response:
 
-`{ "message": "Pong! Fastify is running!" }`
+   `{ "message": "Pong! Fastify is running!" }`
 
-4. **Verify Postgres Connectivity**
+4. Verify Postgres Connectivity
 
-By default, the Postgres container is exposed on port 5432. Connect with psql (or your favorite database tool):
+   By default, the Postgres container is exposed on port 5432. Connect with `psql` (or your favorite database tool):
 
-```bash
-psql -h localhost -p 5432 -U postgres -d mydb
-```
+   ```bash
+   psql -h localhost -p 5432 -U postgres -d mydb
+   ```
 
-Use the username and database name matching your environment settings. If you changed them in `.env`, substitute those values.
+   Use the username and database name matching your environment settings. If you changed them in `.env`, substitute those values.
 
 ## Inspecting and Debugging Containers
 
-1. **View Logs in Real Time**
+1. View Logs in Real Time
 
-```bash
-docker logs -f db
-docker logs -f api
-docker logs -f frontend
-```
+   ```bash
+   docker logs -f db
+   docker logs -f api
+   docker logs -f frontend
+   ```
 
-You can open multiple terminal windows/tabs to follow each container’s logs.
+   You can open multiple terminal windows/tabs to follow each container’s logs.
 
-2. **List Running Containers**
+2. List Running Containers
 
-```bash
-docker ps
-```
+   ```bash
+   docker ps
+   ```
 
-This will show you all running containers, along with their ports and container IDs.
+   This will show you all running containers, along with their ports and container IDs.
 
 ## Seeding Data
 
@@ -173,21 +173,21 @@ INSERT INTO users (name, email) VALUES
 
 ## Stopping and Cleaning Up
 
-1. **Stop All Containers**
+1. Stop All Containers
 
-```bash
-docker compose down
-```
+   ```bash
+   docker compose down
+   ```
 
-2. **Stop and Remove Volumes to Re-Seed the Database**
+2. Stop and Remove Volumes to Re-Seed the Database
 
-If you want to start fresh (e.g., if you changed `db/init.sql` and want the script to run again):
+   If you want to start fresh (e.g., if you changed `db/init.sql` and want the script to run again):
 
-```bash
-docker compose down -v
-```
+   ```bash
+   docker compose down -v
+   ```
 
-This removes volumes, so Postgres data will be removed and re-initialized the next time you run `docker compose up --build -d`.
+   This removes volumes, so Postgres data will be removed and re-initialized the next time you run `docker compose up --build -d`.
 
 ## Future Plans
 
