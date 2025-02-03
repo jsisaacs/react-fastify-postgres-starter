@@ -4,8 +4,6 @@ This repository is a starter project to quickly bootstrap a web application usin
 
 Below are instructions and details to help you get up and running quickly.
 
----
-
 ## Table of Contents
 
 1. [Prerequisites](#prerequisites)
@@ -16,8 +14,6 @@ Below are instructions and details to help you get up and running quickly.
 6. [Seeding Data](#seeding-data)
 7. [Stopping and Cleaning Up](#stopping-and-cleaning-up)
 8. [Future Plans](#future-plans)
-
----
 
 ## Prerequisites
 
@@ -34,8 +30,6 @@ Below are instructions and details to help you get up and running quickly.
   - If you are running everything purely in Docker, the necessary installations are handled inside the container.
   - If you wish to run front-end or back-end scripts on your host machine (i.e., outside Docker), you will need to [install pnpm](https://pnpm.io/installation).
 
----
-
 ## Project Structure
 
 - **db/**: Contains Postgres seeding script.
@@ -43,8 +37,6 @@ Below are instructions and details to help you get up and running quickly.
 - **frontend/**: Contains the React frontend (TypeScript, Vite).
 - **docker-compose.yml**: Defines how Docker containers are composed and networked.
 - **.env.example**: Template for environment variables.
-
----
 
 ## Getting Started
 
